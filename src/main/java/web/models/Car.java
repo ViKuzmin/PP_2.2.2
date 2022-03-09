@@ -6,19 +6,6 @@ public class Car {
     private long miliage;
     private boolean notDamagedNotPainted;
 
-    /*private static List<Car> listCar = new ArrayList<>();
-    {
-        listCar.add(new Car("C1", 15, true));
-        listCar.add(new Car("C2", 1123, true));
-        listCar.add(new Car("C3", 815, false));
-        listCar.add(new Car("C4", 45615, true));
-        listCar.add(new Car("C5", 456315, false));
-    }*/
-
-    /*public static List<Car> getListCar() {
-        return listCar;
-    }*/
-
     public String getBrand() {
         return brand;
     }
@@ -61,6 +48,7 @@ public class Car {
         Car car = (Car) o;
 
         if (miliage != car.miliage) return false;
+        if (notDamagedNotPainted != car.notDamagedNotPainted) return false;
         return brand != null ? brand.equals(car.brand) : car.brand == null;
     }
 
@@ -68,6 +56,7 @@ public class Car {
     public int hashCode() {
         int result = brand != null ? brand.hashCode() : 0;
         result = 31 * result + (int) (miliage ^ (miliage >>> 32));
+        result = 31 * result + (notDamagedNotPainted ? 1 : 0);
         return result;
     }
 
